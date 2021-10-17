@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+h2 {
+  font-family: "Pacifico", cursive;
+  font-size: 3.5rem;
+}
+
+.btn-blue {
+  background-color: #6c63ff !important;
+  color: white !important;
+  transition: 0.3s !important;
+}
+
+.btn-blue:hover {
+  background-color: #4e47cc !important;
+}

@@ -1,0 +1,23 @@
+.Todo-Item {
+  list-style: none;
+  padding: 1.3rem 1rem;
+  background-color: #f8f9fa;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgb(0 0 0 / 5%);
+  transition: 0.3s;
+}
+
+.Todo-Item:hover {
+  transform: scale(1.05);
+}
+
+.Todo-Item span {
+  color: rgba(0, 0, 0, 0.6);
+  margin-left: 0.5rem;
+}
+
+.Todo-Item .icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
