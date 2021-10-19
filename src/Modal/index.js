@@ -9,6 +9,7 @@ function Modal(props) {
       tabIndex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
+      ref={props.reference}
     >
       <div className="modal-dialog">
         <div className="modal-content">

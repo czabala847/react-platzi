@@ -10,7 +10,7 @@ import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
 
 function AppUI() {
-  const { error, loading, searchedtodos, completeTodo, deleteTodo } =
+  const { error, loading, searchedtodos, completeTodo, deleteTodo, modalRef } =
     React.useContext(TodoContext);
 
   return (
@@ -32,7 +32,7 @@ function AppUI() {
         ))}
       </TodoList>
 
-      <Modal title="Crear nuevo To-do">
+      <Modal reference={modalRef} title="Crear nuevo To-do">
         <TodoForm />
       </Modal>
     </React.Fragment>

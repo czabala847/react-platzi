@@ -6,7 +6,7 @@ import { Modal } from "../../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
 function TodoForm() {
   const [newTodoValue, setNewTodoValue] = React.useState("");
-  const { addTodo } = React.useContext(TodoContext);
+  const { addTodo, modalRef } = React.useContext(TodoContext);
 
   const onChange = (e) => {
     setNewTodoValue(e.target.value);
@@ -15,7 +15,8 @@ function TodoForm() {
   const onSubmit = (e) => {
     e.preventDefault();
     addTodo(newTodoValue);
-    const modal = document.getElementById("exampleModal");
+    // const modal = document.querySelector("#ExampleModal");
+    const modal = modalRef.current;
     const instanceModal = Modal.getInstance(modal);
     instanceModal.hide();
     // debugger;

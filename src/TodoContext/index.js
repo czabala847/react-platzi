@@ -13,6 +13,8 @@ function TodoProvider(props) {
   } = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
 
+  const modalRef = React.createRef(null);
+
   // Todo counter
   const completedTodos = todos.filter((todo) => !!todo.complete).length;
   const allTodos = todos.length;
@@ -67,6 +69,7 @@ function TodoProvider(props) {
         completeTodo,
         deleteTodo,
         addTodo,
+        modalRef,
       }}
     >
       {props.children}
