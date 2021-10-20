@@ -1,12 +1,10 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 
 // bootstrap / dist / js / bootstrap.min.js;
 import { Modal } from "../../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
-function TodoForm() {
+function TodoForm({ addTodo, modalRef }) {
   const [newTodoValue, setNewTodoValue] = React.useState("");
-  const { addTodo, modalRef } = React.useContext(TodoContext);
 
   const onChange = (e) => {
     setNewTodoValue(e.target.value);
@@ -19,7 +17,7 @@ function TodoForm() {
     const modal = modalRef.current;
     const instanceModal = Modal.getInstance(modal);
     instanceModal.hide();
-    // debugger;
+    setNewTodoValue("");
   };
 
   return (
