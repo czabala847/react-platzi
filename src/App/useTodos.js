@@ -27,14 +27,12 @@ function useTodos() {
   const completeTodo = (id) => {
     const positionTodo = todos.findIndex((todo) => todo.id === id);
     let newTodo = [...todos];
-
-    newTodo[positionTodo].complete = true;
+    newTodo[positionTodo].complete = !newTodo[positionTodo].complete;
     saveTodo(newTodo);
   };
 
   const addTodo = (name) => {
     let newTodo = [...todos];
-    debugger;
     let id;
     if (newTodo.length > 0) {
       id = newTodo.reduce((prev, current) =>
