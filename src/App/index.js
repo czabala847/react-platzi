@@ -7,6 +7,10 @@ import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { TodoHeader } from "../TodoHeader";
 
+import { TodoError } from "../TodoError";
+import { TodoLoading } from "../TodoLoading";
+import { TodoEmpty } from "../TodoEmpty";
+
 import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
 
@@ -33,11 +37,18 @@ function App() {
         <TodoCounter completedTodos={completedTodos} allTodos={allTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
-      <TodoList>
-        {error && <p>Ocurrió un error...</p>}
-        {loading && <p>Estamos cargando...</p>}
-        {!loading && !searchedtodos.length && <p>Crear un To-Do</p>}
-        {searchedtodos.map((todo) => (
+
+      <TodoList
+        error={error}
+        loading={loading}
+        searchedtodos={searchedtodos}
+        allTodos={allTodos}
+        searchText={searchValue}
+        onError={() => <TodoError />}
+        onLoading={() => <TodoLoading />}
+        onEmpty={() => <TodoEmpty />}
+        onEmptyResult={(value) => <p>No hay resultados para {value}</p>}
+        render={(todo) => (
           <TodoItem
             complete={todo.complete}
             text={todo.text}
@@ -45,8 +56,8 @@ function App() {
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
           />
-        ))}
-      </TodoList>
+        )}
+      />
 
       <Modal reference={modalRef} title="Crear nuevo To-do">
         <TodoForm addTodo={addTodo} modalRef={modalRef} />
