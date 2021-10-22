@@ -14,3 +14,7 @@ h2 {
 .btn-blue:hover {
   background-color: #4e47cc !important;
 }
+
+.Todo-counter--loading {
+  opacity: 25%;
+}
