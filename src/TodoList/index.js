@@ -21,7 +21,7 @@ function TodoList({
           {!loading && !allTodos && onEmpty()}
           {!!allTodos && !searchedtodos.length && onEmptyResult(searchText)}
 
-          <ul className="m-0 p-0">{searchedtodos.map(render)}</ul>
+          {!loading && <ul className="m-0 p-0">{searchedtodos.map(render)}</ul>}
         </div>
       </div>
     </section>

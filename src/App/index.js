@@ -1,20 +1,27 @@
 // import './App.css';
 import React from "react";
 
+//componentes
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
 import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { TodoHeader } from "../TodoHeader";
+import { TodoForm } from "../TodoForm";
 
+//componentes de validación
 import { TodoError } from "../TodoError";
 import { TodoLoading } from "../TodoLoading";
 import { TodoEmpty } from "../TodoEmpty";
 
+//Portal
 import { Modal } from "../Modal";
-import { TodoForm } from "../TodoForm";
 
+//Hook
 import { useTodos } from "./useTodos";
+
+//HOC
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 
 function App() {
   const {
@@ -29,6 +36,7 @@ function App() {
     searchValue,
     setSearchValue,
     addTodo,
+    sincronizeTodo,
   } = useTodos();
 
   return (
@@ -62,6 +70,8 @@ function App() {
       <Modal reference={modalRef} title="Crear nuevo To-do">
         <TodoForm addTodo={addTodo} modalRef={modalRef} />
       </Modal>
+
+      <ChangeAlertWithStorageListener sincronize={sincronizeTodo} />
     </React.Fragment>
   );
 }

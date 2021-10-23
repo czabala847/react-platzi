@@ -13,8 +13,7 @@ function TodoItem(props) {
         onClick={props.onComplete}
       />
       <span className={`${props.complete && "text-decoration-line-through"}`}>
-        {" "}
-        {props.text}{" "}
+        {props.text}
       </span>
       <FontAwesomeIcon
         className="text-danger icon float-end"
