@@ -21,7 +21,7 @@ import { Modal } from "../Modal";
 import { useTodos } from "./useTodos";
 
 //HOC
-import { ChangeAlertWithStorageListener } from "../ChangeAlert";
+import { ChangeAlert } from "../ChangeAlert";
 
 function App() {
   const {
@@ -71,7 +71,7 @@ function App() {
         <TodoForm addTodo={addTodo} modalRef={modalRef} />
       </Modal>
 
-      <ChangeAlertWithStorageListener sincronize={sincronizeTodo} />
+      <ChangeAlert sincronize={sincronizeTodo} />
     </React.Fragment>
   );
 }
